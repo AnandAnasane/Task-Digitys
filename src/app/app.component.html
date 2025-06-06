@@ -27,13 +27,13 @@
         </a>
 
         <button class="btn btn-sm btn-outline-secondary" (click)="toggleDarkMode()">
-  <ng-container *ngIf="darkMode; else darkIcon">
-    <i class="fa-solid fa-sun me-1"></i> Light Mode
-  </ng-container>
-  <ng-template #darkIcon>
-    <i class="fa-solid fa-moon me-1"></i> Dark Mode
-  </ng-template>
-</button>
+          <ng-container *ngIf="darkMode; else darkIcon">
+            <i class="fa-solid fa-sun me-1"></i> Light Mode
+          </ng-container>
+          <ng-template #darkIcon>
+            <i class="fa-solid fa-moon me-1"></i> Dark Mode
+          </ng-template>
+        </button>
 
       </div>
     </div>
@@ -88,6 +88,15 @@
             [routerLinkActiveOptions]="{ exact: true }">
             <i class="fa-solid fa-gear me-2"></i> Settings
           </a>
+
+          <button class="btn btn-sm btn-outline-secondary" (click)="toggleDarkMode()">
+            <ng-container *ngIf="darkMode; else darkIcon">
+              <i class="fa-solid fa-sun me-1"></i> Light Mode
+            </ng-container>
+            <ng-template #darkIcon>
+              <i class="fa-solid fa-moon me-1"></i> Dark Mode
+            </ng-template>
+          </button>
         </div>
       </div>
     </div>
