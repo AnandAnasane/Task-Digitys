@@ -70,25 +70,40 @@
       </div>
       <div class="offcanvas-body">
         <div class="nav flex-column nav-pills">
-          <a routerLink="/dashboard" routerLinkActive="active bg-primary text-white" class="nav-link mb-2" [routerLinkActiveOptions]="{ exact: true }">
+          <a routerLink="/dashboard"
+          (click)="closeOffcanvas()"
+          routerLinkActive="active bg-primary text-white" 
+          class="nav-link mb-2" [routerLinkActiveOptions]="{ exact: true }">
             <i class="fa-solid fa-square-poll-vertical me-2"></i> Dashboard
+            
           </a>
-          <a routerLink="/risk-overview" routerLinkActive="active bg-primary text-white" class="nav-link mb-2" [routerLinkActiveOptions]="{ exact: true }">
+          <a routerLink="/risk-overview"
+           (click)="closeOffcanvas()" 
+           routerLinkActive="active bg-primary text-white" 
+           class="nav-link mb-2" [routerLinkActiveOptions]="{ exact: true }">
             <i class="fa-solid fa-arrow-trend-up me-2"></i> Risk Overview
           </a>
-          <a routerLink="/security-alerts" routerLinkActive="active bg-primary text-white" class="nav-link mb-2" [routerLinkActiveOptions]="{ exact: true }">
+          <a routerLink="/security-alerts"  (click)="closeOffcanvas()"
+          routerLinkActive="active bg-primary text-white" 
+          class="nav-link mb-2" [routerLinkActiveOptions]="{ exact: true }">
             <i class="fa-solid fa-bell me-2"></i> Security Alerts
           </a>
-          <a routerLink="/compliance-status" routerLinkActive="active bg-primary text-white" class="nav-link mb-2" [routerLinkActiveOptions]="{ exact: true }">
+          <a routerLink="/compliance-status"
+           (click)="closeOffcanvas()"
+           routerLinkActive="active bg-primary text-white" 
+           class="nav-link mb-2" [routerLinkActiveOptions]="{ exact: true }">
             <i class="fa-solid fa-wallet me-2"></i> Compliance Status
           </a>
-          <a routerLink="/reports" routerLinkActive="active bg-primary text-white" class="nav-link mb-2" [routerLinkActiveOptions]="{ exact: true }">
+          <a routerLink="/reports"  (click)="closeOffcanvas()"
+          routerLinkActive="active bg-primary text-white" 
+          class="nav-link mb-2" [routerLinkActiveOptions]="{ exact: true }">
             <i class="fa-regular fa-file me-2"></i> Reports
           </a>
-          <a routerLink="/settings" routerLinkActive="active bg-primary text-white" class="nav-link mb-2" [routerLinkActiveOptions]="{ exact: true }">
+          <a routerLink="/settings"  (click)="closeOffcanvas()"
+          routerLinkActive="active bg-primary text-white" class="nav-link mb-2" [routerLinkActiveOptions]="{ exact: true }">
             <i class="fa-solid fa-gear me-2"></i> Settings
           </a>
-          <button class="btn btn-sm btn-outline-secondary mt-2" (click)="toggleDarkMode()">
+          <button class="btn btn-sm btn-outline-secondary mt-2" (click)="toggleDarkMode()"  (click)="closeOffcanvas()">
             <ng-container *ngIf="darkMode; else darkIcon">
               <i class="fa-solid fa-sun me-1"></i> Light Mode
             </ng-container>
