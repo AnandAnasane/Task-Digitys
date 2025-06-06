@@ -13,6 +13,7 @@ export class DashboardComponent implements AfterViewInit {
   darkMode = false;
   sidebarVisible = false;
 
+
   ngAfterViewInit(): void {
     this.loadDarkModePreference();
     this.createCharts();
@@ -20,8 +21,7 @@ export class DashboardComponent implements AfterViewInit {
 
   toggleDarkMode() {
     this.darkMode = !this.darkMode;
-    localStorage.setItem('darkMode', this.darkMode.toString());
-    this.createCharts();
+    
   }
 
   loadDarkModePreference() {

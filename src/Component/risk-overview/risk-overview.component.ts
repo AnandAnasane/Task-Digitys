@@ -1,12 +1,36 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import Chart from 'chart.js/auto';
 
 @Component({
   selector: 'app-risk-overview',
   standalone: true,
-  imports: [],
   templateUrl: './risk-overview.component.html',
-  styleUrl: './risk-overview.component.css'
+  styleUrls: ['./risk-overview.component.css'],
 })
-export class RiskOverviewComponent {
+export class RiskOverviewComponent implements AfterViewInit {
+  @ViewChild('riskCanvas') riskCanvasRef!: ElementRef<HTMLCanvasElement>;
 
+  darkMode = false; // Optional: receive via @Input() if needed
+
+  ngAfterViewInit(): void {
+    const textColor = this.darkMode ? '#f1f1f1' : '#000';
+
+    new Chart(this.riskCanvasRef.nativeElement, {
+      type: 'doughnut',
+      data: {
+        labels: ['Risk Score', 'Remaining'],
+        datasets: [{
+          data: [75, 25],
+          backgroundColor: ['#36A2EB', '#FF6384']
+        }]
+      },
+      options: {
+        plugins: {
+          legend: {
+            labels: { color: textColor } 
+          }
+        }
+      }
+    });
+  }
 }

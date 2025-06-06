@@ -7,9 +7,14 @@ import { ReportsComponent } from '../Component/reports/reports.component';
 import { SettingComponent } from '../Component/setting/setting.component';
 
 export const routes: Routes = [
-
     {
         path: '',
+        pathMatch: 'full',
+        component: DashboardComponent
+    },
+
+    {
+        path: 'dashboard',
         component: DashboardComponent
     },
     {
@@ -29,7 +34,7 @@ export const routes: Routes = [
         component: ReportsComponent
     },
     {
-        path: 'setting',
+        path: 'settings',
         component: SettingComponent
     }
 ];

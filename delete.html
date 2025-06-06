@@ -1,28 +1,151 @@
-    <div [ngClass]="{'dark-mode': darkMode}" class="min-vh-100 d-flex flex-column bg-light text-dark">
-      <nav class="navbar navbar-expand-lg" [ngClass]="{'navbar-dark bg-dark': darkMode, 'navbar-light bg-light': !darkMode}">
-        <a class="navbar-brand" href="#">GRC Dashboard</a>
-        <button class="btn btn-outline-secondary ms-auto" (click)="toggleDarkMode()">
-          {{darkMode ? 'Light Mode' : 'Dark Mode'}}
-        </button>
+<div class="container-fluid" [ngClass]="{'dark-mode': darkMode}">
+  <div class="d-flex">
+
+    <!-- Sidebar (Large Screens) -->
+    <div class="d-none d-lg-block bg-light p-3" style="height: 100vh;">
+      <h4 class="text-center">GRC Dashboard</h4>
+      <hr>
+      <div class="nav flex-column nav-pills" id="sidebarMenu">
+        <a routerLink="dashboard" routerLinkActive="active bg-primary text-white" class="nav-link active mb-2">
+          <i class="fa-solid fa-square-poll-vertical me-2"></i> Dashboard
+        </a>
+        <a routerLink="risk-overview" routerLinkActive="active bg-primary text-white" class="nav-link mb-2">
+          <i class="fa-solid fa-arrow-trend-up me-2"></i> Risk Overview
+        </a>
+        <a routerLink="security-alerts" routerLinkActive="active bg-primary text-white" class="nav-link mb-2">
+          <i class="fa-solid fa-bell me-2"></i> Security Alerts
+        </a>
+        <a routerLink="compliance-status" routerLinkActive="active bg-primary text-white" class="nav-link mb-2">
+          <i class="fa-regular fa-file me-2"></i> Compliance Status
+        </a>
+        <a routerLink="reports" routerLinkActive="active bg-primary text-white" class="nav-link mb-2">
+          <i class="fa-regular fa-file me-2"></i> Reports
+        </a>
+        <a routerLink="settings" routerLinkActive="active bg-primary text-white" class="nav-link mb-2">
+          <i class="fa-solid fa-gear me-2"></i> Settings
+        </a>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-grow-1">
+      <!-- Top Navbar -->
+      <nav class="navbar navbar-light ">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+          <span class="navbar-brand d-lg-none fw-bold">GRC Dashboard</span>
+
+          <!-- Toggle for Small Screens -->
+          <button class="btn d-lg-none" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas">
+            <i class="fa-solid fa-bars fs-3"></i>
+          </button>
+        </div>
       </nav>
-      <div class="container my-4 flex-grow-1">
-        <div class="row g-4">
-          <!-- Risk Overview Panel -->
-          <div class="col-12 col-lg-4">
-            <div class="card shadow-sm h-100">
+
+      <!-- Dashboard Heading -->
+      <main class="px-4">
+        <div class="d-flex justify-content-between align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2">GRC Dashboard</h1>             
+          <div>
+            <i class="btn btn-sm fa-solid fa-bell fs-4 text-warning me-2"></i>
+            <button class="btn btn-sm btn-outline-secondary" (click)="toggleDarkMode()">
+              <i *ngIf="darkMode" class="fa-solid fa-sun"></i>
+              <i *ngIf="!darkMode" class="fa-solid fa-moon"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="row g-3">
+          <div class="col-md-6">
+            <div class="card shadow-sm">
               <div class="card-body">
                 <h5 class="card-title">Risk Overview</h5>
-                <h2 class="display-4 text-center">{{riskScore}}</h2>
-                <p class="text-center mb-3">Risk Score (0-100)</p>
-                <h6>Top 3 Risk Categories</h6>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item" *ngFor="let category of topRiskCategories">
-                    {{category}}
-                  </li>
-                </ul>
+                <div class="d-flex flex-wrap">
+                  <div class="flex-grow-1">
+                    <canvas id="riskOverview"></canvas>
+                  </div>
+                  <div class="ps-3">
+                    <h6>Total Risk</h6>
+                    <ul class="list-unstyled">
+                      <li><i class="fa-solid fa-circle text-primary me-2"></i>Data Privacy</li>
+                      <li><i class="fa-solid fa-circle text-danger me-2"></i>Vendor Risk</li>
+                      <li><i class="fa-solid fa-circle text-success me-2"></i>Access Control</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
+          <div class="col-md-6">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">Compliance Status</h5>
+                <canvas id="complianceStatus"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
 
-<router-outlet />
+        <!-- Alerts and Risk Score -->
+        <div class="row g-3 mt-3">
+          <div class="col-md-6">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">Security Alerts</h5>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Unauthorized login attempt - <span class="text-danger">High</span></li>
+                  <li class="list-group-item">Missing data policy - <span class="text-warning">Medium</span></li>
+                  <li class="list-group-item">Outdated antivirus - <span class="text-success">Low</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">Risk Score Over Time</h5>
+                <canvas id="riskScoreOverTime"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Sidebar (Small Screens) -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarOffcanvas">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title">GRC Dashboard</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div class="input-group mb-3">
+          <span class="input-group-text">Search</span>
+          <input type="text" class="form-control">
+        </div>
+        <div class="nav flex-column nav-pills">
+          <a routerLink="dashboard" routerLinkActive="active bg-primary text-white" class="nav-link  active  mb-2">
+            <i class="fa-solid fa-square-poll-vertical me-2"></i> Dashboard
+          </a>
+          <a routerLink="/risk-overview" routerLinkActive="active bg-primary text-white" class="nav-link mb-2">
+            <i class="fa-solid fa-arrow-trend-up me-2"></i> Risk Overview
+          </a>
+          <a routerLink="compliance-status" routerLinkActive="active bg-primary text-white" class="nav-link mb-2">
+            <i class="fa-solid fa-wallet me-2"></i> Compliance Status
+          </a>
+          <a routerLink="security-alerts" routerLinkActive="active bg-primary text-white" class="nav-link mb-2">
+            <i class="fa-regular fa-user me-2"></i> Security Alerts
+          </a>
+          <a routerLink="reports" routerLinkActive="active bg-primary text-white" class="nav-link mb-2">
+            <i class="fa-regular fa-file me-2"></i> Reports
+          </a>
+          <a routerLink="settings" routerLinkActive="active bg-primary text-white" class="nav-link mb-2">
+            <i class="fa-solid fa-gear me-2"></i> Settings
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
