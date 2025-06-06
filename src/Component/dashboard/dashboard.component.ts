@@ -11,18 +11,11 @@ import Chart from 'chart.js/auto';
 })
 export class DashboardComponent implements AfterViewInit {
   darkMode = false;
-
   sidebarVisible = false;
-
-  riskScore = 75; // dynamic value
-  chart: any;
 
   ngAfterViewInit(): void {
     this.createCharts();
-
-
-    //  For dynamic show value in dougnut
-    
+  
   }
 
   toggleDarkMode() {
