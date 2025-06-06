@@ -8,9 +8,9 @@ import Chart from 'chart.js/auto';
   styleUrls: ['./risk-overview.component.css'],
 })
 export class RiskOverviewComponent implements AfterViewInit {
-  @ViewChild('riskCanvas') riskCanvasRef!: ElementRef<HTMLCanvasElement>;
+  @ViewChild('riskOverview') riskCanvasRef!: ElementRef<HTMLCanvasElement>;
 
-  darkMode = false; // Optional: receive via @Input() if needed
+  darkMode = false;
 
   ngAfterViewInit(): void {
     const textColor = this.darkMode ? '#f1f1f1' : '#000';
