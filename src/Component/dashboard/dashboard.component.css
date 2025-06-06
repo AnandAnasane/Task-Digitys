@@ -11,5 +11,60 @@ canvas {
   height: 300px !important;
 }
 
-/* Updated Css exacly the same image */
+/* For Dark mode */
 
+
+/* styles.css or dashboard.component.css */
+
+/* dashboard.component.css */
+canvas {
+  max-width: 100%;
+  height: 300px !important;
+
+}
+
+.dark-mode {
+  background-color: #1e1e2f;
+  color: #f1f1f1;
+}
+
+.dark-mode .navbar,
+.dark-mode .card,
+.dark-mode .offcanvas,
+.dark-mode .sidebar,
+.dark-mode .bg-light {
+  background-color: #2a2a3b !important;
+  color: #f1f1f1;
+}
+
+.dark-mode .nav-link {
+  color: #cfcfcf !important;
+}
+
+.dark-mode .nav-link.active {
+  background-color: #007bff;
+  color: #fff !important;
+}
+
+.dark-mode .input-group-text,
+.dark-mode .form-control {
+  background-color: #3a3a4f;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+.dark-mode .btn-outline-secondary {
+  color: #fff;
+  border-color: #fff;
+}
+
+.dark-mode .list-group-item {
+  background-color: #2a2a3b;
+  border-color: #3c3c4c;
+}
+
+.dark-mode .btn-light {
+  background-color: #444;
+  color: #fff;
+  border: 1px solid #777;
+}
