@@ -8,7 +8,7 @@ import Chart from 'chart.js/auto';
   styleUrls: ['./compliance-status.component.css'],
 })
 export class ComplianceStatusComponent implements AfterViewInit {
-  @ViewChild('complianceStatus') canvasRef!: ElementRef<HTMLCanvasElement>;
+  @ViewChild('complianceStatusCanvas') canvasRef!: ElementRef<HTMLCanvasElement>;
   darkMode = false;
 
   ngAfterViewInit(): void {
@@ -22,7 +22,7 @@ export class ComplianceStatusComponent implements AfterViewInit {
         labels: ['ISO 27001', 'SOC 2', 'GDPR'],
         datasets: [{
           label: 'Compliance Percentage',
-          data: [90, 65, 40],
+          data: [80, 65, 40],
           backgroundColor: ['#4BC0C0', '#FFCE56', '#FF6384']
         }]
       },
