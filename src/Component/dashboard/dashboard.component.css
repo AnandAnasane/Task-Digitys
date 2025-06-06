@@ -1,0 +1,14 @@
+/* dashboard.component.css */
+.bg-dark {
+  background-color: #343a40 !important;
+}
+.text-white {
+  color: #ffffff;
+}
+canvas {
+  max-width: 100%;
+  height: 300px !important;
+}
+
+/* Updated Css exacly the same image */
+

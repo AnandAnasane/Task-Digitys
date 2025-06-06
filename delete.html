@@ -1,0 +1,28 @@
+    <div [ngClass]="{'dark-mode': darkMode}" class="min-vh-100 d-flex flex-column bg-light text-dark">
+      <nav class="navbar navbar-expand-lg" [ngClass]="{'navbar-dark bg-dark': darkMode, 'navbar-light bg-light': !darkMode}">
+        <a class="navbar-brand" href="#">GRC Dashboard</a>
+        <button class="btn btn-outline-secondary ms-auto" (click)="toggleDarkMode()">
+          {{darkMode ? 'Light Mode' : 'Dark Mode'}}
+        </button>
+      </nav>
+      <div class="container my-4 flex-grow-1">
+        <div class="row g-4">
+          <!-- Risk Overview Panel -->
+          <div class="col-12 col-lg-4">
+            <div class="card shadow-sm h-100">
+              <div class="card-body">
+                <h5 class="card-title">Risk Overview</h5>
+                <h2 class="display-4 text-center">{{riskScore}}</h2>
+                <p class="text-center mb-3">Risk Score (0-100)</p>
+                <h6>Top 3 Risk Categories</h6>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item" *ngFor="let category of topRiskCategories">
+                    {{category}}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+
+<router-outlet />

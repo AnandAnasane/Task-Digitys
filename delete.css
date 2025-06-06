@@ -1,0 +1,14 @@
+.dark-mode {
+      background-color: #121212 !important;
+      color: #e0e0e0 !important;
+    }
+    .dark-mode .card {
+      background-color: #1e1e1e !important;
+      color: #e0e0e0 !important;
+    }
+    .dark-mode .progress {
+      background-color: #333 !important;
+    }
+    .dark-mode .navbar {
+      border-bottom: 1px solid #333;
+    }
