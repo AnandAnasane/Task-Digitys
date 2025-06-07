@@ -1,27 +1,48 @@
-# Dashboard
+📘 GRC Dashboard – README / Design Brief
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.14.
+**Project Title**: GRC Dashboard – Governance, Risk, and Compliance Interface
+**Frameworks Used**: Angular 18, Bootstrap 5.3.3, Chart.js, FontAwesome
+**Purpose**: To provide an interactive, responsive, and user-friendly dashboard for monitoring and visualizing risk and compliance metrics in an enterprise environment.
 
-## Development server
+🔧 Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+* **Responsive Layout**: Adapts across devices using Bootstrap grid and offcanvas navigation.
+* **Dark Mode Support**: Theme toggler with `localStorage` support to persist user preferences.
+* **Modular Codebase**: Each component (navigation, dashboard, charts) is structured separately for scalability.
+* **Interactive Charts**: Real-time visualization using Chart.js for doughnut, bar, and line charts.
+* **Accessibility**: Uses semantic HTML, icons, and ARIA-compliant components for inclusive design.
 
-## Code scaffolding
+🧩 Component Overview
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+| Component            | Description                                           |
+| -------------------- | ----------------------------------------------------- |
+| `DashboardComponent` | Main panel for visual data (charts) and user insights |
+| `SidebarComponent`   | Responsive navigation for different GRC sections      |
+| `DarkModeService`    | Manages theme preference and updates DOM dynamically  |
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+🚀 Setup Instructions
 
-## Running unit tests
+1. Install dependencies:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+   bash
+   npm install
+   
 
-## Running end-to-end tests
+2. Run development server:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+   bash
+   ng serve
+   
 
-## Further help
+3. Open in browser at:
+   [http://localhost:4200](http://localhost:4200)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+📊 Charts Summary
+
+Doughnut Chart – Displays current risk vs remaining score.
+Bar Chart – Compliance percentages for ISO, SOC 2, GDPR.
+Line Chart – Shows risk trends over recent months.
+
+All charts are styled based on the active theme using dynamic color bindings.
