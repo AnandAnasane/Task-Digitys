@@ -8,7 +8,7 @@ import Chart from 'chart.js/auto';
   styleUrls: ['./compliance-status.component.css'],
 })
 export class ComplianceStatusComponent implements AfterViewInit {
-  @ViewChild('complianceStatusCanvas') canvasRef!: ElementRef<HTMLCanvasElement>;
+  @ViewChild('complianceStatus') canvasRef!: ElementRef<HTMLCanvasElement>;
   darkMode = false;
 
   ngAfterViewInit(): void {
